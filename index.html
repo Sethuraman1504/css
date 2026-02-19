@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seamless Product Scroller</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+
+    .product-outer-wrapper {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      background: black;
+      height: 300px;
+    }
+
+    .product-wrapper {
+      display: flex;
+      gap: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: transform;
+    }
+
+    .product-container {
+      min-width: 300px;
+      height: 300px;
+      background: #222;
+      color: bisque;
+      font-size: 24px;
+      text-align: center;
+      line-height: 300px;
+      border: 1px solid #555;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product-outer-wrapper">
+    <div class="product-wrapper" id="productWrapper">
+      <div class="product-container">Product 1</div>
+      <div class="product-container">Product 2</div>
+      <div class="product-container">Product 3</div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const wrapper = document.getElementById("productWrapper");
+      const speed = 1; // pixels per frame
+      let x = 0;
+
+      function scrollLoop() {
+        x -= speed;
+        wrapper.style.transform = `translateX(${x}px)`;
+
+        const firstChild = wrapper.children[0];
+        const firstChildWidth = firstChild.offsetWidth + 20; // 20 = gap
+
+        // Check if the first child is out of view completely
+        if (-x >= firstChildWidth) {
+          wrapper.appendChild(firstChild); // Move to end
+          x += firstChildWidth; // Adjust offset
+        }
+
+        requestAnimationFrame(scrollLoop);
+      }
+
+      // Delay scroll start by 3 seconds
+      setTimeout(() => {
+        requestAnimationFrame(scrollLoop);
+      }, 3000);
+    };
+  </script>
+
+</body>
+</html>

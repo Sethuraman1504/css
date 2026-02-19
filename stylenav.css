@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:Arial;
+
+}
+/*nav bar container */
+.navbar{
+    background-color: #333;
+}
+/* Horizontal Links */
+.nav-links li{
+    margin: 0 15px;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.nav-links a{
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: aliceblue;
+    transition: background 0.3s;
+}
+.nav-links a:hover{
+    background-color: gray;
+    
+}

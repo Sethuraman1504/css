@@ -1,0 +1,8 @@
+body {
+    background-image: url('logo.png/11.jpg'); /* Use your image path here */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  

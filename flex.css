@@ -1,0 +1,8 @@
+.flex-container >div {
+          background-color: lightgreen;
+          width:100px;
+          height: 800px;
+          display: flex;
+          text-align: center;
+          margin: 10px;
+}
